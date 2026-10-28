@@ -4,12 +4,6 @@
         "dockerfile": "Dockerfile",
         "context": ".."
     },
-    "features": {
-        "ghcr.io/devcontainers/features/nvidia-cuda:1": {
-            "installCudnn": false,
-            "installToolkit": true
-        }
-    },
     "userEnvProbe": "none",
     "customizations": {
         "vscode": {
@@ -19,10 +13,10 @@
             ]
         }
     },
-    "remoteUser": "vscode",
+    "remoteUser": "root",
     "runArgs": [
-        "--gpus=all",
-        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro"
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro",
+        "--gpus=all"
     ],
     "containerEnv": {
         "DISPLAY": "${localEnv:DISPLAY}"
